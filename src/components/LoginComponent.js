@@ -1,15 +1,17 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoginComponent = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const data = { username, password };
     console.log("Login Data:", data);
-
+      navigate("/quiz");
     // TODO: Send to backend using axios
     // axios.post("http://localhost:5000/login", data)
     //   .then(res => console.log(res))
@@ -44,7 +46,7 @@ const LoginComponent = () => {
             required
           />
 
-          <button type="submit" style={styles.button}>Login</button>
+          <button type="submit" style={styles.button} onClick={handleSubmit}>Login</button>
         </form>
       </div>
     </div>
@@ -54,10 +56,11 @@ const LoginComponent = () => {
 const styles = {
   container: {
     width: "100%",
-    height: "100vh",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    padding: "20px",
+    margin: "50px",
   },
   card: {
     width: "60%",

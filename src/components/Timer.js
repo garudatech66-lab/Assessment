@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Timer = ({ minutes = 30 }) => {
+  const navigate = useNavigate();
   const [timeLeft, setTimeLeft] = useState(minutes * 60);
 
   useEffect(() => {
@@ -8,8 +10,9 @@ const Timer = ({ minutes = 30 }) => {
       setTimeLeft((prev) => {
         console.log(prev)
         if(prev === 0){
+          navigate("/");
           clearInterval(interval);
-          alert("Time's up!");
+          // alert("Time's up!");
         }
         return prev > 0 ? prev - 1 : 0
       }

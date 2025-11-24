@@ -15,7 +15,7 @@ export default function QuizApp() {
       <RouterMap />
 
       {/* Footer */}
-      <div className="bg-white shadow-md mt-auto absolute bottom-0 w-full">
+      <div className="bg-white shadow-md mt-auto fixed bottom-0 w-full">
         <div className="max-w-4xl mx-auto px-4 py-3 text-center text-sm text-gray-500">
           Navigate through questions at your own pace. Your answers are automatically saved.
         </div>

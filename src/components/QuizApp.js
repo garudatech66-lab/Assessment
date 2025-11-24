@@ -110,7 +110,7 @@ export default function QuizApp() {
 
   if (isComplete) {
     return (<>
-      <div className="bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
+      <div className="bg-gradient-to-br flex items-center justify-center p-4">
         <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 max-w-2xl w-full text-center">
           <div className="mb-6">
             <CheckCircle className="w-20 h-20 text-green-500 mx-auto mb-4" />
@@ -168,7 +168,7 @@ export default function QuizApp() {
 
   return (
     <>
-    <div className=" bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col">
+    <div className="flex flex-col">
       {/* Header */}
       <div className="bg-white shadow-md">
         <div className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">

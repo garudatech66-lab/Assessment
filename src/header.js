@@ -1,6 +1,9 @@
 import Timer from "./components/Timer";
-
+import { useLocation } from "react-router-dom";
 export default function Header(){
+   const location = useLocation();
+
+  console.log(location.pathname);  
 
     return <div class="MuiContainer-root MuiContainer-maxWidthXxl MuiContainer-disableGutters no-print css-fzg2p1">
     <div class="flex header_bg  justify-between items-center px-6 py-3">
@@ -9,9 +12,9 @@ export default function Header(){
             School Assessment
           </span> 
             {/* 🕒 TIMER — FIXED TOP RIGHT */}
-        <div className="mt-2 md:mt-0 inline-block">
+        {location.pathname == "/quiz" ? <div className="mt-2 md:mt-0 inline-block">
           <Timer minutes={1} />
-        </div>
+        </div>: <span>&nbsp;</span>}
         
     </div>
 </div>
