@@ -2,22 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+  background: linear-gradient(135deg, #FFF7F2, #FFEEDD);
+}
+.header_bg{
+  width:100%;
+  background: linear-gradient( 45deg,  #FF5F6D, #FFC371 );
+  box-shadow: 0 4px 10px rgb(0,0,0,0.1);
+}
 .head_text {
   font-size: xx-large; 
   font-weight: bold; 
-  margin-left: 20px;
-  padding: 30px 0px;
-  background-color:lightgreen;
-  width:100%;
-   color: #ffffff;
+ 
+  color: #ffffff;
   text-align: center;
-  padding-top: 50px;
+  padding-top: 10px;
   font-family: Arial, Helvetica, sans-serif;
-/* background: linear-gradient(90deg,#4A90E2,#50C9C3); */
-  background: linear-gradient( 45deg,  #FF5F6D, #FFC371 );
+  
   font-size: 40px;
-  box-shadow: 0 4px 10px rgb(0,0,0,0.1);
-  height: 140px;
 }
 .MuiGrid-root{
     /* background-color: #4A90E2; */
@@ -27,11 +29,11 @@
       margin-left: 140px;
 }
 #img_ilogo{
-  margin-left: 155px;
+  /* margin-left: 155px;
     margin-top: -63px;
     height: 132px;
     width: 70px;
-    height: 70px;
+    height: 70px; */
 }
 /* *body{
   padding: 0px;

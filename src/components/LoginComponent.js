@@ -55,14 +55,13 @@ const styles = {
   container: {
     width: "100%",
     height: "100vh",
-    background: "linear-gradient(to right, #0D5EA6, #0A3C6B)",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
   },
   card: {
-    width: "350px",
-    padding: "25px",
+    width: "60%",
+    padding: "50px",
     background: "#ffffff",
     borderRadius: "10px",
     boxShadow: "0 4px 12px rgba(0,0,0,0.2)",

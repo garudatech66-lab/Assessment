@@ -5,7 +5,15 @@ const Timer = ({ minutes = 30 }) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
+      setTimeLeft((prev) => {
+        console.log(prev)
+        if(prev === 0){
+          clearInterval(interval);
+          alert("Time's up!");
+        }
+        return prev > 0 ? prev - 1 : 0
+      }
+    );
     }, 1000);
 
     return () => clearInterval(interval);
@@ -20,7 +28,7 @@ const Timer = ({ minutes = 30 }) => {
   };
 
   return (
-    <div style={styles.timer}>
+    <div style={styles.timer} >
       ⏳ Time Left: <b>{formatTime()}</b>
     </div>
   );
@@ -28,6 +36,7 @@ const Timer = ({ minutes = 30 }) => {
 
 const styles = {
   timer: {
+    borderRadius: "25px",
     background: "#0D5EA6",
     color: "white",
     padding: "10px",
