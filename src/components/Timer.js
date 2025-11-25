@@ -3,20 +3,27 @@ import { useNavigate } from "react-router-dom";
 
 const Timer = ({ minutes = 30 }) => {
   const navigate = useNavigate();
-  const [timeLeft, setTimeLeft] = useState(minutes * 60);
+
+  // Load saved timer or use default
+  const savedTime = localStorage.getItem("timeLeft");
+  const initialTime = savedTime ? parseInt(savedTime) : minutes * 60;
+
+  const [timeLeft, setTimeLeft] = useState(initialTime);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setTimeLeft((prev) => {
-        console.log(prev)
-        if(prev === 0){
-          navigate("/");
+        if (prev <= 1) {
           clearInterval(interval);
-          // alert("Time's up!");
+          localStorage.removeItem("timeLeft");
+          navigate("/"); // Auto submit or redirect
+          return 0;
         }
-        return prev > 0 ? prev - 1 : 0
-      }
-    );
+
+        const newTime = prev - 1;
+        localStorage.setItem("timeLeft", newTime); // Persist
+        return newTime;
+      });
     }, 1000);
 
     return () => clearInterval(interval);
@@ -31,7 +38,7 @@ const Timer = ({ minutes = 30 }) => {
   };
 
   return (
-    <div style={styles.timer} >
+    <div style={styles.timer}>
       ⏳ Time Left: <b>{formatTime()}</b>
     </div>
   );

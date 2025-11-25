@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { ChevronRight, CheckCircle } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { ChevronRight, CheckCircle } from "lucide-react";
 import axios from "axios";
-import  paper from "./paper.json";
+import paper from "./paper.json";
 
 const questions = [];
-paper.sections.forEach((sec)=>{
-    sec.questions.forEach((each)=>{
-        questions.push({
-           ...each,
-           type:"multiple",
-           heading: each.heading ||sec.heading,
-           section: sec.section
-        })
-    })
-})
+paper.sections.forEach((sec) => {
+  sec.questions.forEach((each) => {
+    questions.push({
+      ...each,
+      type: "multiple",
+      heading: each.heading || sec.heading,
+      section: sec.section,
+    });
+  });
+});
 
 // const Navbar = () => (
 //   <nav style={{ padding: '10px', backgroundColor: '#f0f0f0' }}>
@@ -21,92 +21,123 @@ paper.sections.forEach((sec)=>{
 //   </nav>
 // );
 
-
 export default function QuizApp() {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState({});
-  const [isComplete, setIsComplete] = useState(false);
+  const savedCurrent = localStorage.getItem("currentQuestion");
+  const savedAnswers = localStorage.getItem("answers");
+  const savedComplete = localStorage.getItem("isComplete");
+
+  const [currentQuestion, setCurrentQuestion] = useState(
+    savedCurrent ? parseInt(savedCurrent) : 0
+  );
+
+  const [answers, setAnswers] = useState(
+    savedAnswers ? JSON.parse(savedAnswers) : {}
+  );
+
+  const [isComplete, setIsComplete] = useState(savedComplete === "true");
+
+  // const [currentQuestion, setCurrentQuestion] = useState(0);
+  // const [answers, setAnswers] = useState({});
+  // const [isComplete, setIsComplete] = useState(false);
   console.log(paper.sections);
+
+  useEffect(() => {
+    localStorage.setItem("currentQuestion", currentQuestion);
+  }, [currentQuestion]);
+
+  useEffect(() => {
+    localStorage.setItem("answers", JSON.stringify(answers));
+  }, [answers]);
+
+  useEffect(() => {
+    localStorage.setItem("isComplete", isComplete);
+  }, [isComplete]);
+
   const handleAnswer = (questionId, answer) => {
-    setAnswers(prev => ({
+    setAnswers((prev) => ({
       ...prev,
-      [questionId]: answer
+      [questionId]: answer,
     }));
   };
 
   const handleNext = () => {
     if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(prev => prev + 1);
+      setCurrentQuestion((prev) => prev + 1);
     } else {
       setIsComplete(true);
     }
-    console.log(answers)
+    console.log(answers);
   };
 
   const handlePrevious = () => {
     if (currentQuestion > 0) {
-      setCurrentQuestion(prev => prev - 1);
+      setCurrentQuestion((prev) => prev - 1);
     }
   };
 
-   const handleSubmit = async () => {
-      const payload = {
-        student_id: "studentId",  // optional
-        ...answers 
-                     // merge dynamic answers
-      };
+  const handleSubmit = async () => {
+    const payload = {
+      student_id: "studentId", // optional
+      ...answers,
+      // merge dynamic answers
+    };
 
-      const res = await axios.post("http://localhost:5000/submit", payload, {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      });
-    }
+    const res = await axios.post("http://localhost:5000/submit", payload, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    localStorage.removeItem("currentQuestion");
+    localStorage.removeItem("answers");
+    localStorage.removeItem("isComplete");
+  };
 
-
-  const attemptedCount = Object.keys(answers).filter(key => answers[key] !== '').length;
+  const attemptedCount = Object.keys(answers).filter(
+    (key) => answers[key] !== ""
+  ).length;
   const remainingCount = questions.length - attemptedCount;
 
   if (isComplete) {
-    return (<>
-      <div className="bg-gradient-to-br flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 max-w-2xl w-full text-center">
-          <div className="mb-6">
-            <CheckCircle className="w-20 h-20 text-green-500 mx-auto mb-4" />
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Exam Completed!
-            </h1>
-            <p className="text-gray-600 text-lg mb-8">
-              Thank you for completing the quiz. Here's your summary:
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <div className="bg-green-50 rounded-xl p-6 border-2 border-green-200">
-              <div className="text-4xl font-bold text-green-600 mb-2">
-                {attemptedCount}
+    return (
+      <>
+        <div className="bg-gradient-to-br flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 max-w-2xl w-full text-center">
+            <div className="mb-6">
+              <CheckCircle className="w-20 h-20 text-green-500 mx-auto mb-4" />
+              <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                Exam Completed!
+              </h1>
+              <p className="text-gray-600 text-lg mb-8">
+                Thank you for completing the quiz. Here's your summary:
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div className="bg-green-50 rounded-xl p-6 border-2 border-green-200">
+                <div className="text-4xl font-bold text-green-600 mb-2">
+                  {attemptedCount}
+                </div>
+                <div className="text-gray-700 font-medium">
+                  Questions Attempted
+                </div>
               </div>
-              <div className="text-gray-700 font-medium">
-                Questions Attempted
+
+              <div className="bg-orange-50 rounded-xl p-6 border-2 border-orange-200">
+                <div className="text-4xl font-bold text-orange-600 mb-2">
+                  {remainingCount}
+                </div>
+                <div className="text-gray-700 font-medium">
+                  Questions Skipped
+                </div>
               </div>
             </div>
-            
-            <div className="bg-orange-50 rounded-xl p-6 border-2 border-orange-200">
-              <div className="text-4xl font-bold text-orange-600 mb-2">
-                {remainingCount}
-              </div>
-              <div className="text-gray-700 font-medium">
-                Questions Skipped
-              </div>
-            </div>
-          </div>
-          <button
-            onClick={handleSubmit}
-            className="mr-8 bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
-          >
-            Submit Exam !
-          </button>
-          {/* <button
+            <button
+              onClick={handleSubmit}
+              className="mr-8 bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
+            >
+              Submit Exam !
+            </button>
+            {/* <button
             onClick={() => {
               setCurrentQuestion(0);
               setAnswers({});
@@ -116,114 +147,124 @@ export default function QuizApp() {
           >
             Start New Quiz
           </button> */}
+          </div>
         </div>
-      </div>
       </>
     );
   }
 
   const question = questions[currentQuestion];
-  const currentAnswer = answers[question.id] || '';
+  const currentAnswer = answers[question.id] || "";
 
   return (
     <>
-    <div className="flex flex-col">
-      {/* Header */}
-      <div className="bg-white shadow-md">
-        <div className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="text-sm md:text-base text-gray-600">
-            <span className="font-semibold text-indigo-600">{attemptedCount}</span> Attempted
+      <div className="flex flex-col">
+        {/* Header */}
+        <div className="bg-white shadow-md">
+          <div className="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div className="text-sm md:text-base text-gray-600">
+              <span className="font-semibold text-indigo-600">
+                {attemptedCount}
+              </span>{" "}
+              Attempted
+            </div>
+            <div className="text-sm md:text-base font-bold text-gray-800">
+              Question {currentQuestion + 1} of {questions.length}
+            </div>
+            <div className="text-sm md:text-base text-gray-600">
+              <span className="font-semibold text-orange-600">
+                {remainingCount}
+              </span>{" "}
+              Remaining
+            </div>
           </div>
-          <div className="text-sm md:text-base font-bold text-gray-800">
-            Question {currentQuestion + 1} of {questions.length}
-          </div>
-          <div className="text-sm md:text-base text-gray-600">
-            <span className="font-semibold text-orange-600">{remainingCount}</span> Remaining
+        </div>
+
+        {/* Progress Bar */}
+        <div className="bg-gray-200 h-2">
+          <div
+            className="bg-indigo-600 h-2 transition-all duration-300"
+            style={{
+              width: `${((currentQuestion + 1) / questions.length) * 100}%`,
+            }}
+          />
+        </div>
+
+        {/* Question Content */}
+        <div className="flex-1 flex items-center justify-center p-4 md:p-8">
+          <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-10 max-w-3xl w-full">
+            <h3 className="text-xl  font-bold text-gray-800 mb-2">
+              {question.heading ? question.heading : ""}
+            </h3>
+            <p className="text-gray-600 mb-2">{question.paragraph}</p>
+            <h4 className="text-xl  font-bold text-gray-800 mb-4">
+              {question.id} {question.question}
+            </h4>
+
+            {question.type === "multiple" ? (
+              <div className="space-y-3">
+                {question.options.map((option, idx) => (
+                  <label
+                    key={idx}
+                    className={`flex items-center p-4 rounded-lg border-2 cursor-pointer transition-all duration-200 ${
+                      currentAnswer === option
+                        ? "border-indigo-600 bg-indigo-50"
+                        : "border-gray-200 hover:border-indigo-300 hover:bg-gray-50"
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name={`question-${question.id}`}
+                      value={option}
+                      checked={currentAnswer === option}
+                      onChange={(e) =>
+                        handleAnswer(question.id, e.target.value)
+                      }
+                      className="w-5 h-5 text-indigo-600 focus:ring-indigo-500"
+                    />
+                    <span className="ml-3 text-gray-700 font-medium">
+                      {option}
+                    </span>
+                  </label>
+                ))}
+              </div>
+            ) : (
+              <div>
+                <input
+                  type="text"
+                  value={currentAnswer}
+                  onChange={(e) => handleAnswer(question.id, e.target.value)}
+                  placeholder="Type your answer here..."
+                  className="w-full p-4 border-2 border-gray-300 rounded-lg focus:border-indigo-600 focus:outline-none text-gray-700 font-medium transition-colors duration-200"
+                />
+              </div>
+            )}
+
+            {/* Navigation Buttons */}
+            <div className="flex justify-between mt-8 gap-4">
+              <button
+                onClick={handlePrevious}
+                disabled={currentQuestion === 0}
+                className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
+                  currentQuestion === 0
+                    ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+                    : "bg-gray-300 text-gray-700 hover:bg-gray-400 shadow-md hover:shadow-lg"
+                }`}
+              >
+                Previous
+              </button>
+
+              <button
+                onClick={handleNext}
+                className="px-6 py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-all duration-200 flex items-center gap-2 shadow-lg hover:shadow-xl"
+              >
+                {currentQuestion === questions.length - 1 ? "Submit" : "Next"}
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* Progress Bar */}
-      <div className="bg-gray-200 h-2">
-        <div
-          className="bg-indigo-600 h-2 transition-all duration-300"
-          style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
-        />
-      </div>
-
-      {/* Question Content */}
-      <div className="flex-1 flex items-center justify-center p-4 md:p-8">
-        <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-10 max-w-3xl w-full">
-          <h3 className="text-xl  font-bold text-gray-800 mb-2">
-            {question.heading ?  question.heading : ""}
-          </h3>
-          <p className="text-gray-600 mb-2">
-            {question.paragraph}
-          </p>
-          <h4 className="text-xl  font-bold text-gray-800 mb-4">
-           {question.id} {question.question}
-          </h4>
-
-          {question.type === 'multiple' ? (
-            <div className="space-y-3">
-              {question.options.map((option, idx) => (
-                <label
-                  key={idx}
-                  className={`flex items-center p-4 rounded-lg border-2 cursor-pointer transition-all duration-200 ${
-                    currentAnswer === option
-                      ? 'border-indigo-600 bg-indigo-50'
-                      : 'border-gray-200 hover:border-indigo-300 hover:bg-gray-50'
-                  }`}
-                >
-                  <input
-                    type="radio"
-                    name={`question-${question.id}`}
-                    value={option}
-                    checked={currentAnswer === option}
-                    onChange={(e) => handleAnswer(question.id, e.target.value)}
-                    className="w-5 h-5 text-indigo-600 focus:ring-indigo-500"
-                  />
-                  <span className="ml-3 text-gray-700 font-medium">{option}</span>
-                </label>
-              ))}
-            </div>
-          ) : (
-            <div>
-              <input
-                type="text"
-                value={currentAnswer}
-                onChange={(e) => handleAnswer(question.id, e.target.value)}
-                placeholder="Type your answer here..."
-                className="w-full p-4 border-2 border-gray-300 rounded-lg focus:border-indigo-600 focus:outline-none text-gray-700 font-medium transition-colors duration-200"
-              />
-            </div>
-          )}
-
-          {/* Navigation Buttons */}
-          <div className="flex justify-between mt-8 gap-4">
-            <button
-              onClick={handlePrevious}
-              disabled={currentQuestion === 0}
-              className={`px-6 py-3 rounded-lg font-semibold transition-all duration-200 ${
-                currentQuestion === 0
-                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                  : 'bg-gray-300 text-gray-700 hover:bg-gray-400 shadow-md hover:shadow-lg'
-              }`}
-            >
-              Previous
-            </button>
-
-            <button
-              onClick={handleNext}
-              className="px-6 py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-all duration-200 flex items-center gap-2 shadow-lg hover:shadow-xl"
-            >
-              {currentQuestion === questions.length - 1 ? 'Submit' : 'Next'}
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
     </>
   );
 }
