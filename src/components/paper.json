@@ -1,0 +1,307 @@
+{
+  "sections": [
+    {
+      "section": "1",
+      "heading": "I. READ  THE PASSAGE  AND ANSWER  THE FOLLOWING QUESTIONS",
+      "questions": [
+        {
+          "id": 1,
+          "question": "Where  is the Grand  Canyon  located?",
+          "paragraph": "The Grand  Canyon  is one of the most famous  natural  wonders  in the world. \nIt is located in the state of Arizona in the United States. The canyon was \nformed  by the Colorado River, which has been flowing through the area for \nmillions  of years.  The river slowly  cut through  layers  of rock, creating  steep \ncliffs and colourful rock formations.  The Grand Canyon is about 446 kilometers long and over 1.6 kilometers deep. The rocks at the bottom of the canyon are some of the oldest on Earth. Many visitors come every year to hike, take photographs, or simply enjoy the breath taking views. The Grand Canyon is also home to many animals such as eagles, mountain lions, and snakes. It was declared a national park in 1919 to protect its natural beauty.",
+          "options": ["A) California", "B) Nevada", "C) Arizona", "D) Texas"],
+          "answer": "C) Arizona"
+        },
+        {
+          "id": 2,
+          "question": "Which  river helped  form the Grand Canyon?",
+          "paragraph": "The Grand  Canyon  is one of the most famous  natural  wonders  in the world. \nIt is located in the state of Arizona in the United States. The canyon was \nformed  by the Colorado River, which has been flowing through the area for \nmillions  of years.  The river slowly  cut through  layers  of rock, creating  steep \ncliffs and colourful rock formations.  The Grand Canyon is about 446 kilometers long and over 1.6 kilometers deep. The rocks at the bottom of the canyon are some of the oldest on Earth. Many visitors come every year to hike, take photographs, or simply enjoy the breath taking views. The Grand Canyon is also home to many animals such as eagles, mountain lions, and snakes. It was declared a national park in 1919 to protect its natural beauty.",
+          "options": [
+            "A) Mississippi  River",
+            "B) Amazon  River",
+            "C) Colorado  River",
+            "D) Nile River"
+          ],
+          "answer": "C) Colorado  River"
+        },
+
+        {
+          "id": 3,
+          "question": "How was the Grand  Canyon  formed?",
+          "paragraph": "The Grand  Canyon  is one of the most famous  natural  wonders  in the world. \nIt is located in the state of Arizona in the United States. The canyon was \nformed  by the Colorado River, which has been flowing through the area for \nmillions  of years.  The river slowly  cut through  layers  of rock, creating  steep \ncliffs and colourful rock formations.  The Grand Canyon is about 446 kilometers long and over 1.6 kilometers deep. The rocks at the bottom of the canyon are some of the oldest on Earth. Many visitors come every year to hike, take photographs, or simply enjoy the breath taking views. The Grand Canyon is also home to many animals such as eagles, mountain lions, and snakes. It was declared a national park in 1919 to protect its natural beauty.",
+          "options": [
+            "A) By wind and sand",
+            "B) By an earthquake",
+            "C) By the flow of a river cutting  through  rocks",
+            "D) By volcanoes"
+          ],
+          "answer": "C) By the flow of a river cutting  through  rocks"
+        },
+
+        {
+          "id": 4,
+          "question": "How long is the Grand  Canyon?",
+          "paragraph": "The Grand  Canyon  is one of the most famous  natural  wonders  in the world. \nIt is located in the state of Arizona in the United States. The canyon was \nformed  by the Colorado River, which has been flowing through the area for \nmillions  of years.  The river slowly  cut through  layers  of rock, creating  steep \ncliffs and colourful rock formations.  The Grand Canyon is about 446 kilometers long and over 1.6 kilometers deep. The rocks at the bottom of the canyon are some of the oldest on Earth. Many visitors come every year to hike, take photographs, or simply enjoy the breath taking views. The Grand Canyon is also home to many animals such as eagles, mountain lions, and snakes. It was declared a national park in 1919 to protect its natural beauty.",
+          "options": [
+            "A) 100 kilometers",
+            "B) 200 kilometers",
+            "C) 446 kilometers",
+            "D) 600 kilometers"
+          ],
+          "answer": "C) 446 kilometers"
+        },
+
+        {
+          "id": 5,
+          "paragraph": "The Grand  Canyon  is one of the most famous  natural  wonders  in the world. \nIt is located in the state of Arizona in the United States. The canyon was \nformed  by the Colorado River, which has been flowing through the area for \nmillions  of years.  The river slowly  cut through  layers  of rock, creating  steep \ncliffs and colourful rock formations.  The Grand Canyon is about 446 kilometers long and over 1.6 kilometers deep. The rocks at the bottom of the canyon are some of the oldest on Earth. Many visitors come every year to hike, take photographs, or simply enjoy the breath taking views. The Grand Canyon is also home to many animals such as eagles, mountain lions, and snakes. It was declared a national park in 1919 to protect its natural beauty.",
+          "question": "When  was the Grand  Canyon  declared  a national  park?",
+          "options": ["A) 1900", "B) 1919", "C) 1945", "D) 2000"],
+          "answer": "C) 1919"
+        }
+      ]
+    },
+    {
+      "section": "2",
+      "heading": "II. READ THE FOLLOWING POEM AND ANSWER THE FOLLOWING QUESTIONS",
+      "questions": [
+        {
+          "id": 1,
+          "paragraph": "he Road Not Taken – by Robert Frost\nTwo roads diverged in a yellow wood \n And sorry I could not travel both,\n And be one traveller, long I stood \n  And looked down one as far as I could\nTo where it bent in the undergrowth;\n Then took the other, as just as fair,\n And having perhaps the better claim\n Because it was grassy and wanted wear;\n Though as for that the passing there\n Had worn them really about the same.",
+          "question": "Where  is the speaker standing?",
+          "options": [
+            "A) On a mountain",
+            "B) In a yellow  wood  where two  roads  meet",
+            "C) Near a river",
+            "D) In a city street"
+          ],
+          "answer": "B) In a yellow  wood  where two  roads  meet"
+        },
+        {
+          "id": 2,
+          "paragraph": "he Road Not Taken – by Robert Frost\nTwo roads diverged in a yellow wood \n And sorry I could not travel both,\n And be one traveller, long I stood \n  And looked down one as far as I could\nTo where it bent in the undergrowth;\n Then took the other, as just as fair,\n And having perhaps the better claim\n Because it was grassy and wanted wear;\n Though as for that the passing there\n Had worn them really about the same.",
+          "question": "What do the two  roads  symbolize in  the poem?",
+          "options": [
+            "A) Two types of forests",
+            "B) Two life choices  or decisions",
+            "C) Two kinds of weather",
+            "D) Two different  countries"
+          ],
+          "answer": "C) B) Two life choices  or decisions"
+        },
+        {
+          "id": 3,
+          "paragraph": "he Road Not Taken – by Robert Frost\nTwo roads diverged in a yellow wood \n And sorry I could not travel both,\n And be one traveller, long I stood \n  And looked down one as far as I could\nTo where it bent in the undergrowth;\n Then took the other, as just as fair,\n And having perhaps the better claim\n Because it was grassy and wanted wear;\n Though as for that the passing there\n Had worn them really about the same.",
+          "question": "Why did the speaker choose the second road?",
+          "options": [
+            "A) It looked  cleaner",
+            "B) It was shorter",
+            "C) It seemed  less used and more interesting",
+            "D) It was easier to  walk on"
+          ],
+          "answer": "C) It seemed  less used and more interesting"
+        },
+        {
+          "id": 4,
+          "paragraph": "he Road Not Taken – by Robert Frost\nTwo roads diverged in a yellow wood \n And sorry I could not travel both,\n And be one traveller, long I stood \n  And looked down one as far as I could\nTo where it bent in the undergrowth;\n Then took the other, as just as fair,\n And having perhaps the better claim\n Because it was grassy and wanted wear;\n Though as for that the passing there\n Had worn them really about the same.",
+          "question": "What is the mood  of the poem?",
+          "options": [
+            "A) Angry",
+            "B) Confused",
+            "C) Thoughtful  and reflective",
+            "D) Joyful"
+          ],
+          "answer": "C) Thoughtful  and reflective"
+        },
+        {
+          "id": 5,
+          "paragraph": "he Road Not Taken – by Robert Frost\nTwo roads diverged in a yellow wood \n And sorry I could not travel both,\n And be one traveller, long I stood \n  And looked down one as far as I could\nTo where it bent in the undergrowth;\n Then took the other, as just as fair,\n And having perhaps the better claim\n Because it was grassy and wanted wear;\n Though as for that the passing there\n Had worn them really about the same.",
+          "question": "What life  lesson  can we learn from the poem?",
+          "options": [
+            "A) Always  follow  others’  choices",
+            "B) Choosing  your own  path can make  a difference",
+            "C) Never  take risks",
+            "D) Roads  in forests  are dangerous"
+          ],
+          "answer": "B) Choosing  your own  path can make  a difference"
+        }
+      ]
+    },
+    {
+      "section": 3,
+      "questions": [
+        {
+          "id": "A. 1",
+          "heading": "DO AS DIRECTED  \n \nA. PICK  OUT THE SUITABLE  PREPOSITION",
+          "question": " She walked...........the crowd.?",
+          "options": ["A) through", "B) over", "C) across"],
+          "answer": "A) through"
+        },
+        {
+          "id": "A. 2",
+          "heading": "DO AS DIRECTED  \n \nA. PICK  OUT THE SUITABLE  PREPOSITION",
+          "question": " The airplane flew............ the mountains. ",
+          "options": ["A) on", "B) over", "C) into"],
+          "answer": "B) over"
+        },
+        {
+          "id": "A. 3",
+          "heading": "DO AS DIRECTED  \n \nA. PICK  OUT THE SUITABLE  PREPOSITION",
+          "question": "  The kids ran..........the playground.   ",
+          "options": ["A) at", "B) around", "C) for"],
+          "answer": "B) around"
+        },
+        {
+          "id": "A. 4",
+          "heading": "DO AS DIRECTED  \n \nA. PICK  OUT THE SUITABLE  PREPOSITION",
+          "question": "  Rithu placed the plant..........the window.",
+          "options": ["A) over", "B) near", "C) in"],
+          "answer": "A) near"
+        },
+        {
+          "id": "B. 1",
+          "heading": " CHOOSE THE ADJECTIVES FROM THE SENTENCES ",
+          "question": " The gentle waves splashed softly.",
+          "options": ["A) splashed", "B) gentle", "C) softly"],
+          "answer": "B) gentle"
+        },
+        {
+          "id": "B. 2",
+          "heading": " CHOOSE THE ADJECTIVES FROM THE SENTENCES ",
+          "question": "The lazy cat stretched slowly.",
+           "options": ["A) lazy", "B) slowly", "C)stretched"],
+          "answer": "A) lazy"
+        },
+        {
+          "id": "B. 3",
+          "heading": " CHOOSE THE ADJECTIVES FROM THE SENTENCES ",
+          "question": " She lives in a large house.",
+          "options": ["A) lives", "B) large", "C) house"],
+          "answer": "B) large"
+        },
+        {
+          "id": "B. 4",
+          "heading": " CHOOSE THE ADJECTIVES FROM THE SENTENCES ",
+          "question": "The grumpy guard refused entry.",
+          "options": ["A) refused", "B) grumpy", "C) entry"],
+          "answer": "B) grumpy"
+        },
+        {
+            "id": "C. 1",
+            "heading": " IDENTIFY THE CORRECT MODAL VERB TO COMPLETE THE SENTENCES  ",
+            "question": " The teacher ___ ask you to bring the homework.",
+            "options": ["A) might", " B) can"],
+            "answer": "B) can"
+
+        },
+        {
+            "id": "C. 2",
+            "heading": " IDENTIFY THE CORRECT MODAL VERB TO COMPLETE THE SENTENCES  ",
+            "question": " Nikhil ___ easily solve the problem.",
+            "options": ["A) can", " B) may"],
+            "answer": "A) can"
+
+        },
+        {
+            "id": "C. 3",
+            "heading": " IDENTIFY THE CORRECT MODAL VERB TO COMPLETE THE SENTENCES  ",
+            "question":  "  ___ you show me the route to the market?",
+            "options": ["A) might", " B) could"],
+            "answer": "A) could"
+
+        },
+        {
+            "id": "D. 1",
+            "heading": " CONNECT THE SENTENCE WITH SUITABLE CONJUNCTION ",
+            "question": " I love books ___ they are fun to read.",
+             "options": ["A) and", "B) because", "C) else"],
+            "answer": "B) because"
+        },
+        {
+            "id": "D. 2",
+            "heading": " CONNECT THE SENTENCE WITH SUITABLE CONJUNCTION ",
+            "question": "My mom tried to carry all the bags,_______ the bags were too heavy.",
+              "options": ["A) yet", "B) nor", " C) but"],
+            "answer": "C) but"
+
+        },
+        {
+            "id": "D. 3",
+            "heading": " CONNECT THE SENTENCE WITH SUITABLE CONJUNCTION ",
+            "question": "  Birbal is wise ___ witty.",
+             "options": ["A) although", " B) and", "C) or"],
+            "answer": "B) and"
+
+        },
+        {
+            "id": "E. 1",
+            "heading": " CHOOSE THE INTERJECTION IN EACH SENTENCE  ",
+            "question": " _____ ! The bird had flown away",
+             "options": ["A) Hurray", " B) Alas", "C) Wow"],
+            "answer": "B) Alas"
+
+        },
+        {
+            "id": "E. 2",
+            "heading": " CHOOSE THE INTERJECTION IN EACH SENTENCE  ",
+            "question": " _____! We won the match.",
+             "options": ["A) Hurray", " B) Alas", "C) Ouch"],
+            "answer": "A) Hurray"
+        },
+        {
+            "id": "E. 3",
+            "heading": " CHOOSE THE INTERJECTION IN EACH SENTENCE  ",
+            "question": "  ___ ! I made a mistake on the form.",
+             "options": ["A) Wow", " B) Ah", "C) Hurray"],
+            "answer": "B) Ah"
+        },
+        {
+            "id": "F. 1",
+            "heading": " IDENTIFY THE TYPE OF ADVERB USED IN THE GIVEN SENTENCES",
+            "question": " I have heard this story before.",
+             "options": ["A. Adverb of manner", "B.Adverb of time"],
+            "answer": "A.adverb of time"
+        },
+        {
+            "id": "F. 2",
+            "heading": " IDENTIFY THE TYPE OF ADVERB USED IN THE GIVEN SENTENCES",
+            "question": "  He solved the problem quickly.",
+        "options": ["A. Adverb of place", "B. Adverb of manner"],
+            "answer": "B.adverb of manner"
+        },
+        {
+            "id": "F. 3",
+            "heading": " IDENTIFY THE TYPE OF ADVERB USED IN THE GIVEN SENTENCES",
+           "question": "  The horse galloped away.",
+        "options": ["A. Adverb of frequency", " B. Adverb of place"],
+            "answer": "B.adverb of place"
+        },{
+            "id": "G. 1",
+            "heading": "CHOOSE THE CORRECT FORM OF THE VERBS TO COMPLETE THESE SENTENCES",
+          "question": "  She ___ a letter to her grandma yesterday.",
+        "options": ["A. written", "B. wrote", "C. writes"],
+            "answer": "B. wrote"
+        },{
+            "id": "G. 2",
+            "heading": "CHOOSE THE CORRECT FORM OF THE VERBS TO COMPLETE THESE SENTENCES",
+          "question": "  I ___ the project for tomorrow's meeting.",
+        "options": ["A) going to", "B) did finish", "C)will finish"],
+            "answer": "C)will finish"
+        },
+        {
+            "id": "G. 3",
+            "heading": "CHOOSE THE CORRECT FORM OF THE VERBS TO COMPLETE THESE SENTENCES",
+          "question": "They ___ to Paris next month.",
+        "options": ["A)have travelled", " B) will travel", "C)has travelled"],
+            "answer": "B) will travel"
+        },
+        {
+            "id": "G. 4",
+            "heading": "CHOOSE THE CORRECT FORM OF THE VERBS TO COMPLETE THESE SENTENCES",
+           "question": "Naveen ___ the piano every day after school.",
+            "options": ["A) play", " B) plays", "D) playing"],
+            "answer": "B) plays"
+        }
+
+      ]
+    }
+  ]
+}

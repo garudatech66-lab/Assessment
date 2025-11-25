@@ -1,7 +1,8 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import LoginComponent from './components/LoginComponent';
-import QuizApp from './components/QuizApp';
+// import QuizApp from './components/QuizApp';
+import QuizApp from './components/QuizAppViaSeections';
 const RouterMap = () => {
   return (
     <main>

@@ -13,7 +13,7 @@ export default function Header(){
           </span> 
             {/* 🕒 TIMER — FIXED TOP RIGHT */}
         {location.pathname == "/quiz" ? <div className="mt-2 md:mt-0 inline-block">
-          <Timer minutes={1} />
+          <Timer minutes={5} />
         </div>: <span>&nbsp;</span>}
         
     </div>
