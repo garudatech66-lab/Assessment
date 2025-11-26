@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Timer = ({ minutes = 30 }) => {
+const Timer = ({ minutes = 30, submit }) => {
   const navigate = useNavigate();
 
   // Load saved timer or use default
@@ -16,8 +16,10 @@ const Timer = ({ minutes = 30 }) => {
         if (prev <= 1) {
           clearInterval(interval);
           localStorage.removeItem("timeLeft");
-
-          navigate("/"); // Auto submit or redirect
+          submit(true); // Call submit function
+          // setTimeout(() => {
+          //   navigate("/"); // Auto submit or redirect
+          // }, 1000); // Slight delay before
           return 0;
         }
 

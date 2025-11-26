@@ -4,6 +4,7 @@ import axios from "axios";
 import paper from "./paper.json";
 import {submitEndpoint} from '../contants';
 import { useNavigate } from "react-router-dom";
+import Timer from "./Timer";
 
 const questions = [];
 paper.sections.forEach((sec) => {
@@ -84,7 +85,7 @@ export default function QuizApp() {
       ...answers,
       // merge dynamic answers
     };
-
+    console.log(answers)
     await axios.post(submitEndpoint, payload, {
       headers: {
         "Content-Type": "application/json",
@@ -96,7 +97,7 @@ export default function QuizApp() {
       setIsComplete(true);
       setAnswers({});
       setCurrentQuestion(0);
-       navigate("/quiz");
+       navigate("/");
     }).catch(err => {
       console.error("Submission Error:", err);
       alert("Error submitting exam. Please try again.");
@@ -200,7 +201,7 @@ export default function QuizApp() {
             }}
           />
         </div>
-
+        <div className="fixed top-10 right-4"> <Timer minutes={1} submit={setIsComplete}/></div>
         {/* Question Content */}
         <div className="flex-1 flex items-center justify-center p-4 md:p-8">
           <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-10 max-w-3xl w-full">
