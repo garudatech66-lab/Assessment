@@ -16,6 +16,7 @@ const Timer = ({ minutes = 30 }) => {
         if (prev <= 1) {
           clearInterval(interval);
           localStorage.removeItem("timeLeft");
+
           navigate("/"); // Auto submit or redirect
           return 0;
         }

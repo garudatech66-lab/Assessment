@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { ChevronRight, CheckCircle } from "lucide-react";
 import axios from "axios";
 import paper from "./paper.json";
+import {submitEndpoint} from '../contants';
+import { useNavigate } from "react-router-dom";
 
 const questions = [];
 paper.sections.forEach((sec) => {
@@ -25,7 +27,7 @@ export default function QuizApp() {
   const savedCurrent = localStorage.getItem("currentQuestion");
   const savedAnswers = localStorage.getItem("answers");
   const savedComplete = localStorage.getItem("isComplete");
-
+  const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(
     savedCurrent ? parseInt(savedCurrent) : 0
   );
@@ -61,6 +63,7 @@ export default function QuizApp() {
   };
 
   const handleNext = () => {
+    console.log("Next clicked");
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion((prev) => prev + 1);
     } else {
@@ -77,19 +80,27 @@ export default function QuizApp() {
 
   const handleSubmit = async () => {
     const payload = {
-      student_id: "studentId", // optional
+      student_id: localStorage.getItem("user"), // optional
       ...answers,
       // merge dynamic answers
     };
 
-    const res = await axios.post("http://localhost:5000/submit", payload, {
+    await axios.post(submitEndpoint, payload, {
       headers: {
         "Content-Type": "application/json",
       },
+    }).then(res => {
+      console.log("Submission Response:", res.data);
+      alert("Exam submitted successfully!");
+      localStorage.clear();
+      setIsComplete(true);
+      setAnswers({});
+      setCurrentQuestion(0);
+       navigate("/quiz");
+    }).catch(err => {
+      console.error("Submission Error:", err);
+      alert("Error submitting exam. Please try again.");
     });
-    localStorage.removeItem("currentQuestion");
-    localStorage.removeItem("answers");
-    localStorage.removeItem("isComplete");
   };
 
   const attemptedCount = Object.keys(answers).filter(
@@ -205,7 +216,7 @@ export default function QuizApp() {
               <div className="space-y-3">
                 {question.options.map((option, idx) => (
                   <label
-                    key={idx}
+                    key={"question"+idx}
                     className={`flex items-center p-4 rounded-lg border-2 cursor-pointer transition-all duration-200 ${
                       currentAnswer === option
                         ? "border-indigo-600 bg-indigo-50"

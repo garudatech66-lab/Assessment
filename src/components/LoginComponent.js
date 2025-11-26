@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const LoginComponent = () => {
   const [username, setUsername] = useState("");
@@ -7,15 +8,28 @@ const LoginComponent = () => {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
+    if(username.trim() === "" || password.trim() === "") {
+      alert("Username and Password cannot be empty");
+      return;
+    }
     e.preventDefault();
 
     const data = { username, password };
-    console.log("Login Data:", data);
-      navigate("/quiz");
+    
     // TODO: Send to backend using axios
-    // axios.post("http://localhost:5000/login", data)
-    //   .then(res => console.log(res))
-    //   .catch(err => console.log(err));
+    axios.post("http://localhost:5000/login", data)
+      .then(res => {
+        console.log(res)
+        // "status": "success",
+        if(res.data.status === "success") {
+          // console.log("Login Data:", data);
+          localStorage.clear();
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("user", res.data.user);
+          navigate("/quiz");
+        }
+      })
+      .catch(err => console.log(err));
   };
 
   return (
