@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { ChevronRight, CheckCircle } from "lucide-react";
 import axios from "axios";
-import paper from "./paper.json";
+import paper from "./english.json";
 import {submitEndpoint} from '../contants';
 import { useNavigate } from "react-router-dom";
 import Timer from "./Timer";
 
-const questions = [];
+const originalQuestions = [];
 paper.sections.forEach((sec) => {
   sec.questions.forEach((each) => {
-    questions.push({
+    originalQuestions.push({
       ...each,
       type: "multiple",
       heading: each.heading || sec.heading,
@@ -23,12 +23,25 @@ paper.sections.forEach((sec) => {
 //     <Link to="/login" style={{ margin: '10px' }}>Login</Link>
 //   </nav>
 // );
+function shuffleArray(array) {
+  const copied = [...array]; // important: don't mutate original array
+  for (let i = copied.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copied[i], copied[j]] = [copied[j], copied[i]];
+  }
+  console.log(copied)
+  return copied;
+}
+
+
 
 export default function QuizApp() {
   const savedCurrent = localStorage.getItem("currentQuestion");
   const savedAnswers = localStorage.getItem("answers");
   const savedComplete = localStorage.getItem("isComplete");
   const navigate = useNavigate();
+
+  const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(
     savedCurrent ? parseInt(savedCurrent) : 0
   );
@@ -38,11 +51,18 @@ export default function QuizApp() {
   );
 
   const [isComplete, setIsComplete] = useState(savedComplete === "true");
+  const [submitEnable, setSubmitEnable] = useState(false);
 
   // const [currentQuestion, setCurrentQuestion] = useState(0);
   // const [answers, setAnswers] = useState({});
   // const [isComplete, setIsComplete] = useState(false);
   console.log(paper.sections);
+
+  useEffect(() => {
+    // shuffle only once when student logs in
+    const randomQuestions = shuffleArray(originalQuestions);
+    setQuestions(randomQuestions);
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("currentQuestion", currentQuestion);
@@ -63,12 +83,16 @@ export default function QuizApp() {
     }));
   };
 
-  const handleNext = () => {
+  const handleNext = (subBtn) => {
+    console.log("handleNext called", currentQuestion, questions.length);
+    if(currentQuestion === questions.length -2){
+      setSubmitEnable(true)
+    }
     console.log("Next clicked");
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion((prev) => prev + 1);
     } else {
-      setIsComplete(true);
+      if(subBtn){setIsComplete(true);}
     }
     console.log(answers);
   };
@@ -108,7 +132,9 @@ export default function QuizApp() {
     (key) => answers[key] !== ""
   ).length;
   const remainingCount = questions.length - attemptedCount;
-
+  if(questions.length === 0) {
+    return <div>Loading Questions...</div>;
+  }
   if (isComplete) {
     return (
       <>
@@ -201,7 +227,7 @@ export default function QuizApp() {
             }}
           />
         </div>
-        <div className="fixed top-10 right-4"> <Timer minutes={1} submit={setIsComplete}/></div>
+        <div className="fixed top-10 right-4"> <Timer minutes={15} submit={setIsComplete}/></div>
         {/* Question Content */}
         <div className="flex-1 flex items-center justify-center p-4 md:p-8">
           <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-10 max-w-3xl w-full">
@@ -212,7 +238,7 @@ export default function QuizApp() {
             <h4 className="text-xl  font-bold text-gray-800 mb-4">
               {question.id} {question.question}
             </h4>
-
+            {question.image ? <img src={question.image} alt="" className="mb-4 max-h-60 object-contain"/>: ""}
             {question.type === "multiple" ? (
               <div className="space-y-3">
                 {question.options.map((option, idx) => (
@@ -253,7 +279,7 @@ export default function QuizApp() {
             )}
 
             {/* Navigation Buttons */}
-            <div className="flex justify-between mt-8 gap-4">
+            <div className="flex justify-between mt-8 gap-4 fixed right-4 bottom-[230px] bg-white p-4 rounded-xl shadow-lg w-[300px]">
               <button
                 onClick={handlePrevious}
                 disabled={currentQuestion === 0}
@@ -267,13 +293,24 @@ export default function QuizApp() {
               </button>
 
               <button
-                onClick={handleNext}
+                onClick={()=>handleNext(false)}
                 className="px-6 py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-all duration-200 flex items-center gap-2 shadow-lg hover:shadow-xl"
               >
-                {currentQuestion === questions.length - 1 ? "Submit" : "Next"}
+                { "Next "}
                 <ChevronRight className="w-5 h-5" />
               </button>
+              
             </div>
+             {submitEnable ? <div className="flex justify-between mt-8 gap-4 fixed right-4 bottom-[120px] bg-white p-4 rounded-xl shadow-lg w-[300px] center">
+              
+              <button
+                onClick={()=>handleNext(true)}
+                className="px-6 py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-all duration-200 flex items-center gap-2 shadow-lg hover:shadow-xl m-auto"
+              >
+                {"Submit " }
+               !
+              </button>
+            </div>: ""}
           </div>
         </div>
       </div>
