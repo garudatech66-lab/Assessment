@@ -1,7 +1,7 @@
 import React, { use, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import { loginEndpoint } from "../contants";
 const LoginComponent = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +17,7 @@ const LoginComponent = () => {
     const data = { username, password };
     
     // TODO: Send to backend using axios
-    axios.post("http://localhost:5000/login", data)
+    axios.post(loginEndpoint, data)
       .then(res => {
         console.log(res)
         // "status": "success",
