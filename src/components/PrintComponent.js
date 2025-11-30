@@ -1,22 +1,22 @@
-import { printEndpoint } from '../contants';
+import { printEndpoint, clearDB } from '../contants';
+import axios from "axios";
 
 const PdfPrintButton = () => {
+const handlerclearDatabase = async () => {
 
+axios.delete(clearDB)
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.error("Error clearing DB:", error);
+  });
+
+
+}
   const handlePrint = async () => {
     try {
-    //   // API call to get the PDF URL (adjust as needed)
-    //   const response = await fetch("/download-pdf", {
-    //     method: "GET",
-    //   });
-
-    //   if (!response.ok) {
-    //     throw new Error("Failed to download PDF");
-    //   }
-
-    //   // Assuming backend returns: { url: "https://..." }
-    //   const data = await response.json();
-
-    //   // Open the PDF in a new browser tab
+    
       window.open(printEndpoint, "_blank");
       
     } catch (err) {
@@ -25,9 +25,15 @@ const PdfPrintButton = () => {
   };
 
   return (
-    <button onClick={handlePrint}>
+    <div className='flex justify-center items-center m-5 gap-5'>
+    <button className='btn' onClick={handlePrint}>
       Print PDF
     </button>
+    <button className='btn' onClick={handlerclearDatabase}>
+
+        Clear Database
+    </button>
+    </div>
   );
 };
 

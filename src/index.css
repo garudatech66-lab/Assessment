@@ -46,3 +46,12 @@ body{
   bottom: 0;
   left: 0;
 }
+.btn{
+    padding: 12px;
+    background-color: rgb(13, 94, 166);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
