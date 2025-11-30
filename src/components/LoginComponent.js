@@ -75,6 +75,7 @@ const styles = {
     justifyContent: "center",
     padding: "20px",
     margin: "50px 50px 50px 300px",
+    minHeight: "50vh",
   },
   card: {
     width: "60%",
