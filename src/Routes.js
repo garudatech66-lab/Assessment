@@ -4,6 +4,7 @@ import LoginComponent from './components/LoginComponent';
 // import QuizApp from './components/zApp';
 import QuizApp from './components/QuizAppViaSeections';
 import { Navigate } from "react-router-dom";
+import PdfPrintButton from './components/PrintComponent';
 
 
 const ProtectedRoute = ({ children }) => {
@@ -27,6 +28,7 @@ const RouterMap = () => {
             </ProtectedRoute>} />
       {/* 3. Catch-all Route for 404 */}
       <Route path="*" element={<h1>404 - Not Found</h1>} />
+      <Route path="/print" element={<PdfPrintButton />} />
     </Routes>
     </main>
   );

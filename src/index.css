@@ -40,3 +40,9 @@ body{
   margin: auto;
   position: relative;
 } */
+
+.boy_learning{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
