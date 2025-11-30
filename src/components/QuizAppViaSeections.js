@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ChevronRight, CheckCircle } from "lucide-react";
 import axios from "axios";
-import paper from "./english.json";
+import paper from "./maths.json";
 import {submitEndpoint} from '../contants';
 import { useNavigate } from "react-router-dom";
 import Timer from "./Timer";
@@ -236,7 +236,7 @@ export default function QuizApp() {
             </h3>
             <p className="text-gray-600 mb-2">{question.paragraph}</p>
             <h4 className="text-xl  font-bold text-gray-800 mb-4">
-              {question.id} {question.question}
+               {question.question}
             </h4>
             {question.image ? <img src={question.image} alt="" className="mb-4 max-h-60 object-contain"/>: ""}
             {question.type === "multiple" ? (
