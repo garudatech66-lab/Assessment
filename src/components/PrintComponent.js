@@ -1,23 +1,23 @@
-import React from "react";
+import { printEndpoint } from '../contants';
 
 const PdfPrintButton = () => {
 
   const handlePrint = async () => {
     try {
-      // API call to get the PDF URL (adjust as needed)
-      const response = await fetch("/download-pdf", {
-        method: "GET",
-      });
+    //   // API call to get the PDF URL (adjust as needed)
+    //   const response = await fetch("/download-pdf", {
+    //     method: "GET",
+    //   });
 
-      if (!response.ok) {
-        throw new Error("Failed to download PDF");
-      }
+    //   if (!response.ok) {
+    //     throw new Error("Failed to download PDF");
+    //   }
 
-      // Assuming backend returns: { url: "https://..." }
-      const data = await response.json();
+    //   // Assuming backend returns: { url: "https://..." }
+    //   const data = await response.json();
 
-      // Open the PDF in a new browser tab
-      window.open(data.url, "_blank");
+    //   // Open the PDF in a new browser tab
+      window.open(printEndpoint, "_blank");
       
     } catch (err) {
       console.error("Error downloading PDF:", err);
