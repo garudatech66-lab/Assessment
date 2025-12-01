@@ -6,11 +6,12 @@ export default function Header(){
   console.log(location.pathname);  
 
     return <div class="MuiContainer-root MuiContainer-maxWidthXxl MuiContainer-disableGutters no-print css-fzg2p1">
-    <div class="flex header_bg  justify-between items-center px-6 py-3">
-          <img src={rightLogo} width="80" alt="Tree LOGO" id="img_ilogo" class="jsx-67565e89048d1cc8" />
-          <span class="head_text ">
+    {/* <div class="flex header_bg  justify-between items-center px-6 py-3"> */}
+      <div className="header_bg" >
+          {/* <img src={rightLogo} width="80" alt="Tree LOGO" id="img_ilogo" class="jsx-67565e89048d1cc8" /> */}
+          <div class="head_text">
             School Assessment
-          </span> 
+          </div> 
             {/* 🕒 TIMER — FIXED TOP RIGHT */}
         {location.pathname === "/quiz" ? <div className="mt-2 md:mt-0 inline-block">
           {/* <Timer minutes={5} /> */}
