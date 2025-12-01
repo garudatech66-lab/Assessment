@@ -227,7 +227,7 @@ export default function QuizApp() {
             }}
           />
         </div>
-        <div className="fixed top-10 right-4"> <Timer minutes={15} submit={setIsComplete}/></div>
+        <div className="fixed top-10 right-4"> <Timer minutes={90} submit={setIsComplete}/></div>
         {/* Question Content */}
         <div className="flex-1 flex items-center justify-center p-4 md:p-8">
           <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-10 max-w-3xl w-full">

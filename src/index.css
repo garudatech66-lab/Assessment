@@ -2,56 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-  background: linear-gradient(135deg, #FFF7F2, #FFEEDD);
+body {
+  background: linear-gradient(135deg, #fff7f2, #ffeedd);
 }
-.header_bg{
-  width:100%;
-  background: linear-gradient( 45deg,  #FF5F6D, #FFC371 );
-  box-shadow: 0 4px 10px rgb(0,0,0,0.1);
+.header_bg {
+  width: 100%;
+  background: linear-gradient(45deg, #ff5f6d, #ffc371);
+  box-shadow: 0 4px 10px rgb(0, 0, 0, 0.1);
 }
 .head_text {
-  font-size: xx-large; 
-  font-weight: bold; 
- 
+  font-size: xx-large;
+  font-weight: bold;
+
   color: #ffffff;
   text-align: center;
   padding-top: 10px;
   font-family: Arial, Helvetica, sans-serif;
-  
+
   font-size: 40px;
 }
-.MuiGrid-root{
-    /* background-color: #4A90E2; */
-    /* background: linear-gradient(90deg,#4A90E2,#50C9C3); */
-      margin-top: -69px;
-      width: 40px;
-      margin-left: 140px;
+.MuiGrid-root {
+  /* background-color: #4A90E2; */
+  /* background: linear-gradient(90deg,#4A90E2,#50C9C3); */
+  margin-top: -69px;
+  width: 40px;
+  margin-left: 140px;
 }
-#img_ilogo{
+#img_ilogo {
   /* margin-left: 155px;
     margin-top: -63px;
     height: 132px;
     width: 70px;
     height: 70px; */
-} 
+}
 /* *body{
   padding: 0px;
   margin: auto;
   position: relative;
 } */
 
-.boy_learning{
+.boy_learning {
   position: fixed;
   bottom: 0;
   left: 0;
 }
-.btn{
-    padding: 12px;
-    background-color: rgb(13, 94, 166);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
+.btn {
+  padding: 12px;
+  background-color: rgb(13, 94, 166);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.logoEdu {
+  position: fixed;
+  top: 120px;
+  right: 100px;
+  width: 200px;
+  z-index: -1;
 }

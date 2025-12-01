@@ -2,6 +2,7 @@ import React, { use, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { loginEndpoint } from "../contants";
+import { toast } from "react-toastify";
 const LoginComponent = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -26,10 +27,15 @@ const LoginComponent = () => {
           localStorage.clear();
           localStorage.setItem("token", res.data.token);
           localStorage.setItem("user", res.data.user);
+          toast.success("Login Successful!");
           navigate("/quiz");
         }
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.log(err.message)
+        toast.info(err.message)
+        // toast.error("Login Failed! Please check your credentials.");
+      });
   };
 
   return (
