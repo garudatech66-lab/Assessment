@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ChevronRight, CheckCircle } from "lucide-react";
 import axios from "axios";
-import paper from "./maths.json";
+import paper from "./evs.json";
 import {submitEndpoint} from '../contants';
 import { useNavigate } from "react-router-dom";
 import Timer from "./Timer";
