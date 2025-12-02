@@ -1,6 +1,7 @@
 import Header from "./header";
 import RouterMap from "./Routes";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer,toast } from "react-toastify";
+
 
 export default function QuizApp() {
   return (

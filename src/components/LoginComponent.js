@@ -2,7 +2,8 @@ import React, { use, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { loginEndpoint } from "../contants";
-import { toast } from "react-toastify";
+import { toast} from "react-toastify";
+
 const LoginComponent = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
